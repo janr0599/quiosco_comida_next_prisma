@@ -16,7 +16,7 @@ async function OrderPage({ params }: { params: { category: string } }) {
     const products = await getProducts(params.category);
     return (
         <>
-            <h1 className="text-4xl mt-5 mb-10 font-bold">
+            <h1 className="text-3xl lg:text-4xl mt-5 mb-10 font-bold">
                 Elige y personaliza tu pedido
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 items-start">

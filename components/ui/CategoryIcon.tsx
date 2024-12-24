@@ -12,12 +12,11 @@ type CategoryIconProps = {
 function CategoryIcon({ category }: CategoryIconProps) {
     const params = useParams<{ category: string }>();
     return (
-        <div
+        <Link
+            href={`/order/${category.slug}`}
             className={`${
-                category.slug === params.category
-                    ? "bg-amber-400 hover:bg-amber-400"
-                    : ""
-            } flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b hover:bg-gray-100 transition-colors hover:cursor-pointer`}
+                category.slug === params.category ? "bg-amber-400" : ""
+            } flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b hover:cursor-pointer`}
         >
             <div className="size-16 relative">
                 <Image
@@ -26,13 +25,8 @@ function CategoryIcon({ category }: CategoryIconProps) {
                     alt={`icono de ${category.name}`}
                 />
             </div>
-            <Link
-                className="text-xl font-bold"
-                href={`/order/${category.slug}`}
-            >
-                {category.name}
-            </Link>
-        </div>
+            <p className="text-xl font-bold">{category.name}</p>
+        </Link>
     );
 }
 
