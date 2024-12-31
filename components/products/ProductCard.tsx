@@ -22,8 +22,10 @@ function ProductCard({ product }: ProductCardProps) {
             />
             <div className="p-5 flex-grow flex flex-col justify-between">
                 <div>
-                    <h3 className="text-2xl font-bold">{product.name}</h3>
-                    <p className="mt-5 font-black text-4xl text-amber-500">
+                    <h3 className="text-lg xl:text-xl font-bold">
+                        {product.name}
+                    </h3>
+                    <p className="mt-5 font-black text-xl xl:text-2xl text-amber-500">
                         {formatPrice(product.price)}
                     </p>
                 </div>

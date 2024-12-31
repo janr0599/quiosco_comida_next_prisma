@@ -18,14 +18,14 @@ function CategoryIcon({ category }: CategoryIconProps) {
                 category.slug === params.category ? "bg-amber-400" : ""
             } flex items-center gap-4 w-full border-t border-gray-200 p-3 last-of-type:border-b hover:cursor-pointer`}
         >
-            <div className="size-16 relative">
+            <div className="size-12 xl:size-14 relative">
                 <Image
                     fill
                     src={`/icon_${category.slug}.svg`}
                     alt={`icono de ${category.name}`}
                 />
             </div>
-            <p className="text-xl font-bold">{category.name}</p>
+            <p className="text-base xl:text-lg font-bold">{category.name}</p>
         </Link>
     );
 }

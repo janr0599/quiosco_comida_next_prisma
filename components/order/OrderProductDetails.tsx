@@ -30,27 +30,29 @@ function OrderProductDetails({ item }: OrderProductDetailsProps) {
     return (
         <div className="shadow space-y-1 p-4 bg-white  border-t border-gray-200 rounded-lg">
             <div className="space-y-4">
-                <div className="flex justify-between items-start">
-                    <p className="text-xl font-bold">{item.name} </p>
+                <div className="flex justify-between items-start gap-2">
+                    <p className="text-base xl:text-lg font-bold">
+                        {item.name}{" "}
+                    </p>
 
                     <button type="button" onClick={() => removeItem(item.id)}>
-                        <XCircleIcon className="text-red-600 hover:scale-105 transition-transform size-8" />
+                        <XCircleIcon className="text-red-600 hover:scale-105 transition-transform size-7" />
                     </button>
                 </div>
-                <p className="text-2xl text-amber-500 font-black">
+                <p className="text-lg xl:text-xl text-amber-500 font-black">
                     {formatPrice(item.price)}
                 </p>
-                <div className="flex gap-5 px-10 py-2 bg-gray-100 w-fit rounded-lg">
+                <div className="flex gap-5 px-8 py-1 bg-gray-100 w-fit rounded-lg">
                     <button
                         type="button"
                         onClick={() => decreaseQuantity(item.id)}
                         disabled={disableDecreaseButton}
                         className="disabled:opacity-20"
                     >
-                        <MinusIcon className="size-6" />
+                        <MinusIcon className="size-4" />
                     </button>
 
-                    <p className="text-lg font-black ">{item.quantity}</p>
+                    <p className="font-black ">{item.quantity}</p>
 
                     <button
                         type="button"
@@ -58,10 +60,10 @@ function OrderProductDetails({ item }: OrderProductDetailsProps) {
                         disabled={disableIncreaseButton}
                         className="disabled:opacity-20"
                     >
-                        <PlusIcon className="size-6" />
+                        <PlusIcon className="size-4" />
                     </button>
                 </div>
-                <p className="text-xl font-black text-gray-700">
+                <p className="text-base xl:text-lg font-black text-gray-700">
                     Subtotal: {""}
                     <span className="font-normal">
                         {formatPrice(item.subtotal)}
