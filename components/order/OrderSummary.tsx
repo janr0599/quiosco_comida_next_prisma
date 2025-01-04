@@ -2,7 +2,7 @@
 import { useStore } from "@/src/store";
 import OrderProductDetails from "./OrderProductDetails";
 import { formatPrice } from "@/src/utils";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { createOrderAction } from "@/actions/create-order-action";
 import { OrderSchema } from "@/src/schema";
 import { toast } from "react-toastify";
