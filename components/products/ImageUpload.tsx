@@ -21,7 +21,7 @@ function ImageUpload({ image }: ImageUploadProps) {
             }}
             onSuccess={(result, { widget }) => {
                 if (result.event === "success") {
-                    // @ts-ignore
+                    // @ts-expect-error
                     setImageURL(result.info.secure_url);
                     widget.close();
                 }

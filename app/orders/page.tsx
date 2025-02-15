@@ -11,13 +11,9 @@ function OrdersPage() {
             .then((res) => res.json())
             .then((data) => data);
 
-    const { data, error, isLoading } = useSWR<OrderWithProducts[]>(
-        url,
-        fetcher,
-        {
-            refreshInterval: 60000,
-        }
-    );
+    const { data, isLoading } = useSWR<OrderWithProducts[]>(url, fetcher, {
+        refreshInterval: 60000,
+    });
 
     if (isLoading) return <p>Cargando...</p>;
 
