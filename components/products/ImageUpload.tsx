@@ -21,7 +21,7 @@ function ImageUpload({ image }: ImageUploadProps) {
             }}
             onSuccess={(result, { widget }) => {
                 if (result.event === "success") {
-                    // @ts-expect-error
+                    // @ts-expect-error This function exists at runtime, but TypeScript cannot verify it.
                     setImageURL(result.info.secure_url);
                     widget.close();
                 }
