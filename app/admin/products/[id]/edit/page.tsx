@@ -5,7 +5,6 @@ import Heading from "@/components/ui/Heading";
 import { prisma } from "@/src/lib/prisma";
 import { notFound } from "next/navigation";
 
-// Ensure the getProductById function takes a number as an argument
 async function getProductById(id: number) {
     const product = await prisma.product.findUnique({
         where: {
@@ -19,16 +18,8 @@ async function getProductById(id: number) {
     return product;
 }
 
-// Define the PageProps type
-interface PageProps {
-    params: {
-        id: string;
-    };
-}
-
-// Use the PageProps interface to type the props parameter
-async function EditProductsPage({ params }: PageProps) {
-    const product = await getProductById(+params.id);
+async function EditProductsPage({ params }: { params: { id: number } }) {
+    const product = await getProductById(params.id);
     console.log(product);
     return (
         <>
