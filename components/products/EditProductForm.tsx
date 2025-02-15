@@ -34,7 +34,7 @@ function EditProductForm({ children }: { children: React.ReactNode }) {
             return;
         }
 
-        toast.success("Producto creado correctamente");
+        toast.success("Producto Actualizado correctamente");
         router.push("/admin/products");
     };
     return (

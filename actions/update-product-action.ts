@@ -3,5 +3,18 @@ import { prisma } from "@/src/lib/prisma";
 import { ProductSchema } from "@/src/schema";
 
 export async function updateProductAction(data: unknown, id: number) {
-    console.log(data, id);
+    const result = ProductSchema.safeParse(data);
+
+    if (!result.success) {
+        return {
+            errors: result.error.issues,
+        };
+    }
+
+    await prisma.product.update({
+        where: {
+            id: id,
+        },
+        data: result.data,
+    });
 }
