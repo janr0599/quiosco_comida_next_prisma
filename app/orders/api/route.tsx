@@ -1,9 +1,15 @@
 import { prisma } from "@/src/lib/prisma";
 
 export async function GET() {
-    const orders = await prisma.order.findMany({
+    const completedOrders = await prisma.order.findMany({
+        take: 5,
         where: {
-            status: false,
+            orderReadyAt: {
+                not: null,
+            },
+        },
+        orderBy: {
+            orderReadyAt: "desc",
         },
         include: {
             orderProducts: {
@@ -14,5 +20,5 @@ export async function GET() {
         },
     });
 
-    return Response.json(orders);
+    return Response.json(completedOrders);
 }

@@ -1,11 +1,11 @@
 "use client";
 import useSWR from "swr";
-import OrderCard from "@/components/order/OrderCard";
-import Heading from "@/components/ui/Heading";
+import Logo from "@/components/ui/Logo";
 import { OrderWithProducts } from "@/src/types";
+import LatestOrderItem from "@/components/orders/LatestOrderItem";
 
 function OrdersPage() {
-    const url = "/admin/orders/api";
+    const url = "/orders/api";
     const fetcher = () =>
         fetch(url)
             .then((res) => res.json())
@@ -24,16 +24,20 @@ function OrdersPage() {
     if (data)
         return (
             <>
-                <Heading>Administrar Ordenes</Heading>
-
+                <h1 className="text-center mt-10 text-6xl font-bold">
+                    Ordenes Listas
+                </h1>
+                <Logo />
                 {data.length ? (
-                    <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-3 gap-5 max-w-5xl mx-auto my-10">
                         {data.map((order) => (
-                            <OrderCard key={order.id} order={order} />
+                            <LatestOrderItem key={order.id} order={order} />
                         ))}
                     </div>
                 ) : (
-                    <p className="text-center">No hay ordenes pendientes</p>
+                    <p className="text-center my-10">
+                        No hay ordenes pendientes
+                    </p>
                 )}
             </>
         );
