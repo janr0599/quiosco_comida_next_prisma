@@ -18,7 +18,7 @@ async function getProductById(id: number) {
     return product;
 }
 
-async function EditProductsPage({ params }: { params: { id: any } }) {
+async function EditProductsPage({ params }: { params: { id: string } }) {
     const product = await getProductById(+params.id);
     console.log(product);
     return (
